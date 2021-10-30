@@ -19,13 +19,33 @@ class Solution:
         else:
 
             prefix = self.get_current_prefix(current)
-            for candidate in self.check_match_prefix_word(prefix,words):
+            for i, candidate in enumerate(self.check_match_prefix_word(prefix,words)):
                 current.append(candidate)
                 result.append(self.backtrack(current,words))
-                if len(current)==len(current[0]):
+                if len(current) == len(current[0]):
                     return list(current)
-                else:
+
+
+                if i <len(self.check_match_prefix_word(prefix,words))-1:
                     current.pop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     def get_current_prefix (self,current):
@@ -51,7 +71,8 @@ class Solution:
 
 
 
-words = ["area","lead","wall","lady","ball"]
+words = ["abat","baba","atan","atal"]
+#words = ["area","lead","wall","lady","ball"]
 s = Solution()
 t = s.wordSquares(words)
 print(t)
